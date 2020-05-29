@@ -1,9 +1,21 @@
 import { RootQueryType, RootQueryResolvers } from './QueryType.js';
-import { ExampleQueryType, ExampleQueryResolvers } from './ExampleType.js';
+import { CustomScalars, CustomScalarsResolvers } from './CustomScalars';
+import { UserType, UserResolvers } from './UserType.js';
+import { ConversationType, ConversationResolvers } from './ConversationType';
+import { MessageType, MessageResolvers } from './MessageType';
 
-export const typeDefs = [RootQueryType, ExampleQueryType];
+export const typeDefs = [
+  RootQueryType,
+  CustomScalars,
+  UserType,
+  ConversationType,
+  MessageType,
+];
 
 export const resolvers = {
   ...RootQueryResolvers,
-  ...ExampleQueryResolvers,
+  ...CustomScalarsResolvers,
+  ...UserResolvers,
+  ...ConversationResolvers,
+  ...MessageResolvers,
 };
