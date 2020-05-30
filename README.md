@@ -19,3 +19,5 @@ SECRET=b3tt3rCh3ckY0u4531fb34y0uwr3cky0ur531f
 Finally, on the command line, run `psql -U <DATABASE_USER>` and use your `DATABASE_PASSWORD` to log into the postgres CLI. Then run `CREATE DATABASE le_chat_db;` (Don't forget the semicolon!), and then run `exit` to return to your normal command line.
 
 To seed your database, change the `if` statement in `server/src/index.js` so that `seedDatabase()` runs on startup, then change it back. Your resolvers should now return data.
+
+Random change so I have something to push
