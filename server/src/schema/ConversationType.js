@@ -4,7 +4,7 @@ export const ConversationType = gql`
   type Conversation {
     id: ID!
     messages: [Message!]!
-    userIds: [ID!]!
+    users: [User!]!
   }
 `;
 
@@ -12,6 +12,6 @@ export const ConversationResolvers = {
   Conversation: {
     id: () => '1',
     messages: () => [],
-    userIds: conversation => conversation.userIds,
+    users: () => [],
   },
 };

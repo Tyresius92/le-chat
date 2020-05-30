@@ -5,8 +5,8 @@ export const MessageType = gql`
     id: ID!
     text: String!
     sendTime: DateTime!
-    sender: ID!
-    conversation: ID!
+    sender: User!
+    conversation: Conversation!
   }
 `;
 
@@ -15,12 +15,7 @@ export const MessageResolvers = {
     id: () => '1',
     text: () => 'Hello World',
     sendTime: () => new Date(),
-    sender: () => ({
-      id: '1',
-      username: 'Tyresius',
-      email: 'hello@goodbye.com',
-      conversations: [],
-    }),
+    sender: () => ({}),
     conversation: () => ({}),
   },
 };
