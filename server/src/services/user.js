@@ -38,4 +38,4 @@ const fetchUserById = async id => {
   return data.rows[0];
 };
 
-export default { createUser, fetchUsers, fetchUserById };
+export default { createUser, createToken, fetchUsers, fetchUserById };

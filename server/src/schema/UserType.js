@@ -7,6 +7,10 @@ export const UserType = gql`
     users: [User!]!
   }
 
+  extend type Mutation {
+    signUp(input: NewUserInput!): UserLoginPayload!
+  }
+
   type User {
     id: ID!
     username: String!
@@ -18,9 +22,23 @@ export const UserType = gql`
 export const UserResolvers = {
   Query: {
     currentUser: () => null,
-    user: (parent, args, { services }) =>
-      services.userService.fetchUserById(args.id),
-    users: (parent, args, { services }) => services.userService.fetchUsers(),
+    user: (parent, args, { services: { userService } }) =>
+      userService.fetchUserById(args.id),
+    users: (parent, args, { services: { userService } }) =>
+      userService.fetchUsers(),
+  },
+
+  Mutation: {
+    signUp: async (
+      parent,
+      { input: { email, username, password } },
+      { services: { userService }, secret }
+    ) => {
+      const user = await userService.createUser(username, email, password);
+      const token = await userService.createToken(user, secret, '30d');
+
+      return { user, token };
+    },
   },
 
   User: {
