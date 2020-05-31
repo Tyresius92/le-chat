@@ -10,7 +10,7 @@
     "postinstall": "concurrently \"npm run server-install\" \"npm run client-install\"",
     "client-install": "cd client && npm install",
     "server-install": "cd server && npm install",
-    "client-test": "cd client && npm run test",
+    "client-test": "cd client && npm run test -- --watchAll=false",
     "server-test": "cd server && npm run test",
     "client-start": "cd client && npm run start",
     "server-start": "cd server && npm run start",
@@ -23,7 +23,7 @@
     "url": "git+https://github.com/Tyresius92/le-chat.git"
   },
   "author": "Tyrel Clayton",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Tyresius92/le-chat/issues"
   },
