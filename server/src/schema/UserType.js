@@ -42,6 +42,7 @@ export const UserResolvers = {
   },
 
   User: {
+    id: (user, args, context) => user.id,
     conversations: () => [],
   },
 };
