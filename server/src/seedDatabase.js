@@ -16,7 +16,7 @@ const seedDatabase = async () => {
     );
     const user2 = await createUser(
       'marcGaj',
-      'cong@gmail.com',
+      'marcGaj@gmail.com',
       'lessAwesomePassword'
     );
     const user3 = await createUser(
@@ -32,8 +32,20 @@ const seedDatabase = async () => {
       user1.id,
       user3.id,
     ]);
+    const conversation2 = await createConversation('Pokemon are cool', [
+      user2.id,
+      user3.id,
+    ]);
+    const conversation3 = await createConversation('Open source rules!', [
+      user1.id,
+      user2.id,
+    ]);
+    const conversation4 = await createConversation(
+      'Grease is a pretty underrated movie',
+      [user1.id, user2.id, user3.id]
+    );
 
-    console.log(conversation1);
+    console.log(conversation1, conversation2, conversation3, conversation4);
 
     console.log('seeding database complete');
   } catch (err) {
