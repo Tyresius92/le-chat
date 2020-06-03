@@ -1,6 +1,6 @@
 import db from '../db';
 
-const addUserToConversation = async (conversationId, userId) =>
+const addUserToConversation = (conversationId, userId) =>
   db.query(
     `INSERT INTO users_conversations (conversation_id, user_id)
       VALUES ($1, $2)`,
@@ -19,8 +19,8 @@ const createConversation = async (topic, userIds) => {
   // TODO: (maybe) - This approach is not ideal,
   // since it makes many calls to the DB instead of one
   await Promise.all(
-    userIds.map(async userId => {
-      await addUserToConversation(newConversation.id, userId);
+    userIds.map(userId => {
+      addUserToConversation(newConversation.id, userId);
     })
   );
 
@@ -32,3 +32,5 @@ const createConversation = async (topic, userIds) => {
     },
   };
 };
+
+export default { createConversation };
