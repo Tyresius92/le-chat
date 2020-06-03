@@ -8,7 +8,7 @@ Le Chat is a browser-based chat application intended to provide an open source a
 
 ## How to Use
 
-To sign up for an account, navigate to <domain name TBD>.
+To sign up for an account, navigate to (domain name TBD).
 
 ## Contributing
 
@@ -18,7 +18,7 @@ We follow the Fork and PR contribution process. You can find a description of th
 
 Run `npm install` in the root directory. Dependencies for client and server will be installed automatically.
 
-You need to separately install an instance of PostGres on your dev machine and have it running. You can find instructions for this [here](https://www.postgresql.org/docs/current/tutorial-install.html).
+You need to separately install an instance of PostGres on your dev machine and have it running. You can find instructions for this [here](https://www.postgresql.org/docs/current/tutorial-install.html). Set up a user that matches your `.env` file, below.
 
 You will need to create a file called `.env` in `server/` with the following format. It can vary based on your own PostGres setup, but all keys must exist.
 
@@ -26,7 +26,7 @@ You will need to create a file called `.env` in `server/` with the following for
 DATABASE=le_chat_db
 DATABASE_PORT=5432
 DATABASE_HOST=localhost
-DATABASE_USER=postgres
+DATABASE_USER=chatadmin
 DATABASE_PASSWORD=postgres
 
 SECRET=b3tt3rCh3ckY0u4531fb34y0uwr3cky0ur531f
@@ -34,7 +34,7 @@ SECRET=b3tt3rCh3ckY0u4531fb34y0uwr3cky0ur531f
 
 Next, on the command line, run `psql -U <DATABASE_USER>` and use your `DATABASE_PASSWORD` to log into the postgres CLI. Then run `CREATE DATABASE le_chat_db;` (Don't forget the semicolon!). Run `exit` to return to your normal command line.
 
-Then run `sh server/src/init_dev_db.sh` to create the tables. (This script can be used to remove and re-create all of the DB tables.)
+Then run `sh server/src/init_dev_db.sh` to create the tables (modify the initial line to match your `.env` file). (This script can be used to remove and re-create all of the DB tables.)
 
 Now, to actually put data into your database, change the `if` statement in `server/src/index.js` so that `seedDatabase()` runs on startup, then change it back (we only need to seed the DB once). Your resolvers should now return data.
 
@@ -60,9 +60,9 @@ Same command can be run from `client` and `server` directories.
 
 ## Contributors
 
-[tyresius92](https://github.com/Tyresius92)
-[benjimorr](https://github.com/benjimorr)
-[marcgaj](https://github.com/marcgaj)
+- [tyresius92](https://github.com/Tyresius92)
+- [benjimorr](https://github.com/benjimorr)
+- [marcgaj](https://github.com/marcgaj)
 
 ## Acknowledgements
 

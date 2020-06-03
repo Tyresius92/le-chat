@@ -1,8 +1,9 @@
 import services from './services';
 
-const { userService } = services;
+const { userService, conversationService } = services;
 
 const { createUser } = userService;
+const { createConversation } = conversationService;
 
 const seedDatabase = async () => {
   console.log('seeding database');
@@ -26,6 +27,13 @@ const seedDatabase = async () => {
     const user4 = await createUser('tyrel', 'tyrel@gmail.com', 'ButtsMcGee');
 
     console.log(user1, user2, user3, user4);
+
+    const conversation1 = await createConversation('My first topic!', [
+      user1.id,
+      user3.id,
+    ]);
+
+    console.log(conversation1);
 
     console.log('seeding database complete');
   } catch (err) {
