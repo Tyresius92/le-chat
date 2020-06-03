@@ -2,15 +2,15 @@ import db from '../db';
 
 const addUserToConversation = async (conversationId, userId) =>
   db.query(
-    'INSERT INTO users_conversations (conversation_id, user_id) \
-      VALUES ($1, $2)',
+    `INSERT INTO users_conversations (conversation_id, user_id)
+      VALUES ($1, $2)`,
     [parseInt(conversationId, 10), parseInt(userId, 10)]
   );
 
 const createConversation = async (topic, userIds) => {
   const response = await db.query(
-    'INSERT INTO conversations (topic, created_time) VALUES ($1, NOW()) \
-    RETURNING id, topic',
+    `INSERT INTO conversations (topic, created_time) VALUES ($1, NOW())
+    RETURNING id, topic`,
     [topic]
   );
 
