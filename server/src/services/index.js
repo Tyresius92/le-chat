@@ -1,3 +1,4 @@
 import userService from './user';
+import conversationService from './conversation';
 
-export default { userService };
+export default { userService, conversationService };
