@@ -19,9 +19,7 @@ const createConversation = async (topic, userIds) => {
   // TODO: (maybe) - This approach is not ideal,
   // since it makes many calls to the DB instead of one
   await Promise.all(
-    userIds.map(userId => {
-      addUserToConversation(newConversation.id, userId);
-    })
+    userIds.forEach(userId => addUserToConversation(newConversation.id, userId))
   );
 
   return {

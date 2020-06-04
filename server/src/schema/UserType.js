@@ -21,7 +21,7 @@ export const UserType = gql`
 
 export const UserResolvers = {
   Query: {
-    currentUser: () => null,
+    currentUser: (parent, args, context) => context.currentUser,
     user: (parent, args, { services: { userService } }) =>
       userService.fetchUserById(args.id),
     users: (parent, args, { services: { userService } }) =>
@@ -42,7 +42,7 @@ export const UserResolvers = {
   },
 
   User: {
-    id: (user, args, context) => user.id,
+    id: user => user.id,
     conversations: () => [],
   },
 };
