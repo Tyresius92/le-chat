@@ -16,8 +16,8 @@ const createUser = async (username, email, password) => {
   const passwordHash = await generatePasswordHash(password);
 
   const result = await db.query(
-    'INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3) \
-    RETURNING id, username, email',
+    `INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3)
+    RETURNING id, username, email`,
     [username, email, passwordHash]
   );
 
@@ -38,4 +38,24 @@ const fetchUserById = async id => {
   return data.rows[0];
 };
 
-export default { createUser, createToken, fetchUsers, fetchUserById };
+const fetchConversationsByUserId = async userId => {
+  const dbResponse = await db.query(
+    `SELECT 
+      uc.conversation_id AS id, 
+      c.topic
+    FROM conversations AS c
+    INNER JOIN users_conversations AS uc ON c.id = uc.conversation_id 
+    WHERE uc.user_id = $1`,
+    [userId]
+  );
+
+  return dbResponse.rows;
+};
+
+export default {
+  createUser,
+  createToken,
+  fetchUsers,
+  fetchUserById,
+  fetchConversationsByUserId,
+};
