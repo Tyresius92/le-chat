@@ -27,8 +27,6 @@ const createConversation = async (topic, userIds) => {
     conversation: {
       id: newConversation.id,
       topic: newConversation.topic,
-      users: userIds.map(id => ({ id })),
-      messages: [],
     },
   };
 };
