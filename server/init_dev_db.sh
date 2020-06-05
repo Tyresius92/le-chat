@@ -1,4 +1,4 @@
-PGPASSWORD=postgres psql -U postgres -d le_chat_db -c "
+PGPASSWORD=postgres psql -U chatadmin -d le_chat_db -c "
 	DROP TABLE IF EXISTS users;
 	DROP TABLE IF EXISTS conversations;
 	DROP TABLE IF EXISTS messages;
