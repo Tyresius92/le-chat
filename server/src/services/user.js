@@ -16,8 +16,8 @@ const createUser = async (username, email, password) => {
   const passwordHash = await generatePasswordHash(password);
 
   const result = await db.query(
-    'INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3) \
-    RETURNING id, username, email',
+    `INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3)
+    RETURNING id, username, email`,
     [username, email, passwordHash]
   );
 
