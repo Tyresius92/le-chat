@@ -42,7 +42,8 @@ export const UserResolvers = {
   },
 
   User: {
-    id: (user, args, context) => user.id,
-    conversations: () => [],
+    id: user => user.id,
+    conversations: (user, args, context) =>
+      context.services.userService.fetchConversationsByUserId(user.id),
   },
 };

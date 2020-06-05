@@ -19,17 +19,13 @@ export const ConversationResolvers = {
       parent,
       { input: { topic, userIds } },
       { services: { conversationService } }
-    ) => {
-      return conversationService.createConversation(topic, userIds);
-    },
+    ) => conversationService.createConversation(topic, userIds),
   },
 
   Conversation: {
     id: conversation => conversation.id,
     messages: () => [],
-    users: (conversation, args, { services }) =>
-      conversation.users.map(user =>
-        services.userService.fetchUserById(user.id)
-      ),
+    users: (conversation, args, { services: { conversationService } }) =>
+      conversationService.fetchUsersByConversationId(conversation.id),
   },
 };

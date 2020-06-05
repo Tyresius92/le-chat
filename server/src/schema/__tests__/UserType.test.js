@@ -1,10 +1,10 @@
 import { UserResolvers } from '../UserType';
 
 describe('UserResolvers', () => {
-  const { Query, User } = UserResolvers;
+  const { Query } = UserResolvers;
 
   describe('Query', () => {
-    const { currentUser, user, users } = Query;
+    const { currentUser } = Query;
 
     describe('currentUser', () => {
       it('returns null', () => {
