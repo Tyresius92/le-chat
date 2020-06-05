@@ -1,3 +1,5 @@
+import { merge } from 'lodash';
+
 // Root Types
 import { RootQueryType, RootQueryResolvers } from './QueryType.js';
 import { RootMutationType, RootMutationResolvers } from './MutationType.js';
@@ -10,6 +12,8 @@ import { UserLoginPayloadType } from './UserLoginPayloadType';
 
 // Conversation Types
 import { ConversationType, ConversationResolvers } from './ConversationType';
+import { NewConversationInputType } from './NewConversationInputType';
+import { NewConversationPayloadType } from './NewConversationPayloadType';
 
 // Message Types
 import { MessageType, MessageResolvers } from './MessageType';
@@ -27,23 +31,25 @@ export const typeDefs = [
 
   // Conversation Types
   ConversationType,
+  NewConversationInputType,
+  NewConversationPayloadType,
 
   // Message Types
   MessageType,
 ];
 
-export const resolvers = {
+export const resolvers = merge(
   // Root Resolvers
-  ...RootQueryResolvers,
-  ...RootMutationResolvers,
-  ...CustomScalarsResolvers,
+  RootQueryResolvers,
+  RootMutationResolvers,
+  CustomScalarsResolvers,
 
   // User Resolvers
-  ...UserResolvers,
+  UserResolvers,
 
   // Converation Resolvers
-  ...ConversationResolvers,
+  ConversationResolvers,
 
   // Message Resolvers
-  ...MessageResolvers,
-};
+  MessageResolvers
+);

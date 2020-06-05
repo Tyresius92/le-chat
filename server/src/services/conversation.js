@@ -1,15 +1,16 @@
 import db from '../db';
 
-const addUserToConversation = (conversationId, userId) =>
-  db.query(
+const addUserToConversation = async (conversationId, userId) =>
+  await db.query(
     `INSERT INTO users_conversations (conversation_id, user_id)
-      VALUES ($1, $2)`,
+    VALUES ($1, $2)`,
     [parseInt(conversationId, 10), parseInt(userId, 10)]
   );
 
 const createConversation = async (topic, userIds) => {
   const response = await db.query(
-    `INSERT INTO conversations (topic, created_time) VALUES ($1, NOW())
+    `INSERT INTO conversations (topic, created_time) 
+    VALUES ($1, NOW())
     RETURNING id, topic`,
     [topic]
   );
@@ -25,10 +26,24 @@ const createConversation = async (topic, userIds) => {
   return {
     conversation: {
       id: newConversation.id,
-      users: userIds.map(id => ({ id })),
-      messages: [],
+      topic: newConversation.topic,
     },
   };
 };
 
-export default { createConversation };
+const fetchUsersByConversationId = async conversationId => {
+  const dbResponse = await db.query(
+    `SELECT 
+      uc.user_id AS id, 
+      u.username, 
+      u.email 
+    FROM users AS u
+    INNER JOIN users_conversations AS uc ON u.id = uc.user_id 
+    WHERE uc.conversation_id = $1`,
+    [conversationId]
+  );
+
+  return dbResponse.rows;
+};
+
+export default { createConversation, fetchUsersByConversationId };
