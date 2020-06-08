@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
-const TEST_QUERY = gql`
+export const TEST_QUERY = gql`
   {
     users {
       id
