@@ -15,11 +15,11 @@ describe('App', () => {
   });
 
   it('logs an error once if there is a query error', () => {
-    useQuery.mockReturnValue({error: 'testsplosion'})
+    useQuery.mockReturnValue({ error: 'testsplosion' });
     expect(Logger.error).toHaveBeenCalledTimes(0);
     const { rerender } = render(<App />);
     expect(Logger.error).toHaveBeenCalledTimes(1);
-    rerender()
+    rerender();
     expect(Logger.error).toHaveBeenCalledTimes(1);
   });
 });
