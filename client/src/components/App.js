@@ -24,13 +24,6 @@ const App = () => {
   return (
     <div>
       <p>Hello World!</p>
-      <button
-        onClick={() => {
-          throw new Error('butts');
-        }}
-      >
-        Butts
-      </button>
       {data && <p>{JSON.stringify(data)}</p>}
     </div>
   );
