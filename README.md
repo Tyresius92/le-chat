@@ -10,13 +10,14 @@ Le Chat is a browser-based chat application intended to provide an open source a
 
 To sign up for an account, navigate to (domain name TBD).
 
+## Track our progress
+
+We've set up a Trello board to track new features and the status of issue resolutions. Check it out [here](https://trello.com/b/VtxxQngU/le-chat-app)
+
 ## Contributing
 
 We follow the Fork and PR contribution process. You can find a description of this process [here](https://mattstauffer.com/blog/how-to-contribute-to-an-open-source-github-project-using-your-own-fork/).
 
-## Track our progress
-
-We've set up a Trello board to track new features and the status of issue resolutions. Check it out [here](https://trello.com/b/VtxxQngU/le-chat-app)
 
 ### Getting Started
 
