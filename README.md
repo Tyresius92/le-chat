@@ -18,7 +18,6 @@ We've set up a Trello board to track new features and the status of issue resolu
 
 We follow the Fork and PR contribution process. You can find a description of this process [here](https://mattstauffer.com/blog/how-to-contribute-to-an-open-source-github-project-using-your-own-fork/).
 
-
 ### Getting Started
 
 Run `npm install` in the root directory. Dependencies for client and server will be installed automatically.
