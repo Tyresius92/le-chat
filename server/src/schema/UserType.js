@@ -1,4 +1,5 @@
 import { gql } from 'apollo-server';
+import { AuthenticationError, UserInputError } from 'apollo-server';
 
 export const UserType = gql`
   extend type Query {
@@ -9,6 +10,7 @@ export const UserType = gql`
 
   extend type Mutation {
     signUp(input: NewUserInput!): UserLoginPayload!
+    signIn(input: UserLoginInput!): UserLoginPayload!
   }
 
   type User {
@@ -38,6 +40,33 @@ export const UserResolvers = {
       const token = await userService.createToken(user, secret, '30d');
 
       return { user, token };
+    },
+    signIn: async (
+      parent,
+      { input: { emailOrUsername, password } },
+      { services: { userService }, secret }
+    ) => {
+      const user = await userService.fetchUserByLogin(emailOrUsername);
+
+      if (!user) {
+        throw new UserInputError('No user found with that login');
+      }
+
+      const isPasswordValid = await userService.validatePassword(
+        user.password_hash,
+        password
+      );
+
+      if (!isPasswordValid) {
+        throw new AuthenticationError('Invalid password');
+      }
+
+      const token = await userService.createToken(user, secret, '30d');
+
+      return {
+        user,
+        token,
+      };
     },
   },
 
