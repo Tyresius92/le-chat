@@ -1,5 +1,4 @@
-import { gql } from 'apollo-server';
-import { AuthenticationError, UserInputError } from 'apollo-server';
+import { gql, AuthenticationError, UserInputError } from 'apollo-server';
 
 export const UserType = gql`
   extend type Query {
