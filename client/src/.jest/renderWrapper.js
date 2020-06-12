@@ -3,4 +3,4 @@ import { ThemeProvider } from '@chakra-ui/core';
 import { render } from '@testing-library/react';
 
 export const renderThemed = children =>
-    render(<ThemeProvider>{children}</ThemeProvider>);
+  render(<ThemeProvider>{children}</ThemeProvider>);
