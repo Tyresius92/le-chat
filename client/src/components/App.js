@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import Logger from '../logger';
+import SignOutButton from './SignOutButton';
 
 const TEST_QUERY = gql`
   {
@@ -25,6 +26,8 @@ const App = () => {
     <div>
       <p>Hello World!</p>
       {data && <p>{JSON.stringify(data)}</p>}
+      <hr />
+      <SignOutButton />
     </div>
   );
 };
