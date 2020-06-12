@@ -2,6 +2,7 @@ import React from 'react';
 import App from '../App';
 import { useQuery } from '@apollo/react-hooks';
 import Logger from '../../logger';
+import { renderThemed } from '../../.jest/renderWrapper';
 
 jest.mock('../../logger');
 jest.mock('@apollo/react-hooks', () => ({ useQuery: jest.fn(() => ({})) }));
