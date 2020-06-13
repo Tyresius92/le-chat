@@ -57,8 +57,8 @@ const fetchUserByLogin = async emailOrUsername => {
   return user.rows[0];
 };
 
-const fetchConversationsByUserId = async userId => {
-  const dbResponse = await db.query(
+const fetchConversationsByUserId = async userId =>
+  await db.fetchAll(
     `SELECT 
       uc.conversation_id AS id, 
       c.topic
@@ -67,9 +67,6 @@ const fetchConversationsByUserId = async userId => {
     WHERE uc.user_id = $1`,
     [userId]
   );
-
-  return dbResponse.rows;
-};
 
 export default {
   createUser,

@@ -12,4 +12,12 @@ const pool = new Pool({
 module.exports = {
   query: async (sql, params, callback) =>
     await pool.query(sql, params, callback),
+  fetch: async (sql, params, callback) => {
+    const response = await pool.query(sql, params, callback);
+    return response.rows[0];
+  },
+  fetchAll: async (sql, params, callback) => {
+    const response = await pool.query(sql, params, callback);
+    return response.rows;
+  },
 };
