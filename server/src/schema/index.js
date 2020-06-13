@@ -8,6 +8,7 @@ import { CustomScalars, CustomScalarsResolvers } from './CustomScalars';
 // User types
 import { UserType, UserResolvers } from './UserType.js';
 import { NewUserInputType } from './NewUserInputType';
+import { UserLoginInputType } from './UserLoginInputType';
 import { UserLoginPayloadType } from './UserLoginPayloadType';
 
 // Conversation Types
@@ -27,6 +28,7 @@ export const typeDefs = [
   // User Types
   UserType,
   NewUserInputType,
+  UserLoginInputType,
   UserLoginPayloadType,
 
   // Conversation Types
