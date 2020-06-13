@@ -4,6 +4,7 @@ import App from '../App';
 import { useQuery } from '@apollo/react-hooks';
 import Logger from '../../logger';
 import { ThemeProvider } from '@chakra-ui/core';
+import logoSmall from '../../assets/logo_small.png';
 
 jest.mock('../../logger');
 jest.mock('@apollo/react-hooks', () => ({ useQuery: jest.fn(() => ({})) }));
@@ -16,6 +17,14 @@ describe('App', () => {
     const { getByText } = renderThemed(<App />);
     const componentText = getByText('Hello World!');
     expect(componentText).toBeInTheDocument();
+  });
+
+  it('renders the logo as an image', () => {
+    const { getByAltText, getAllByRole } = renderThemed(<App />);
+    const logo = getByAltText('Le Chat');
+    const images = getAllByRole('img');
+    expect(images).toContain(logo);
+    expect(logo).toBeInTheDocument();
   });
 
   it('logs an error once if there is a query error', () => {
