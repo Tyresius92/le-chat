@@ -3,7 +3,8 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import Logger from '../logger';
 import SignOutButton from './SignOutButton';
-
+import { Image } from '@chakra-ui/core';
+import logoSmall from '../assets/logo_small.png';
 const TEST_QUERY = gql`
   {
     users {
@@ -24,6 +25,7 @@ const App = () => {
 
   return (
     <div>
+      <Image src={logoSmall} alt="Le Chat" />
       <p>Hello World!</p>
       {data && <p>{JSON.stringify(data)}</p>}
       <hr />
