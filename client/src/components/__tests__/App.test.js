@@ -4,7 +4,6 @@ import App from '../App';
 import { useQuery } from '@apollo/react-hooks';
 import Logger from '../../logger';
 import { ThemeProvider } from '@chakra-ui/core';
-import logoSmall from '../../assets/logo_small.png';
 
 jest.mock('../../logger');
 jest.mock('@apollo/react-hooks', () => ({ useQuery: jest.fn(() => ({})) }));
