@@ -14,6 +14,14 @@ describe('App', () => {
     expect(componentText).toBeInTheDocument();
   });
 
+  it('renders the logo as an image', () => {
+    const { getByAltText, getAllByRole } = renderThemed(<App />);
+    const logo = getByAltText('Le Chat');
+    const images = getAllByRole('img');
+    expect(images).toContain(logo);
+    expect(logo).toBeInTheDocument();
+  });
+
   it('logs an error once if there is a query error', () => {
     useQuery.mockReturnValue({ error: 'testsplosion' });
     expect(Logger.error).toHaveBeenCalledTimes(0);

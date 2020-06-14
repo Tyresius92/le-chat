@@ -14,9 +14,9 @@
     "server-test": "cd server && npm run test",
     "client-start": "cd client && npm run start",
     "server-start": "cd server && npm run start",
-    "client-sniff": "cd server && npm run sniff",
+    "client-sniff": "cd client && npm run sniff",
     "server-sniff": "cd server && npm run sniff",
-    "smellsGood": "echo Great success!! Your code smells goooood!"
+    "smellsGood": "echo \"\\x1b[92mGreat success!! Your code smells goooood!\\x1b[0m\""
   },
   "repository": {
     "type": "git",

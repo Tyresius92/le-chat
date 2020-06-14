@@ -38,8 +38,27 @@ const fetchUserById = async id => {
   return data.rows[0];
 };
 
-const fetchConversationsByUserId = async userId => {
-  const dbResponse = await db.query(
+const validatePassword = async (passwordHash, attemptedPassword) =>
+  await bcrypt.compare(attemptedPassword, passwordHash);
+
+const fetchUserByEmail = async email =>
+  await db.query('SELECT * FROM users WHERE email = $1 LIMIT 1', [email]);
+
+const fetchUserByUsername = async username =>
+  await db.query('SELECT * FROM users WHERE username = $1 LIMIT 1', [username]);
+
+const fetchUserByLogin = async emailOrUsername => {
+  let user = await fetchUserByUsername(emailOrUsername);
+
+  if (!user.rows[0]) {
+    user = await fetchUserByEmail(emailOrUsername);
+  }
+
+  return user.rows[0];
+};
+
+const fetchConversationsByUserId = async userId =>
+  await db.fetchAll(
     `SELECT 
       uc.conversation_id AS id, 
       c.topic
@@ -49,13 +68,12 @@ const fetchConversationsByUserId = async userId => {
     [userId]
   );
 
-  return dbResponse.rows;
-};
-
 export default {
   createUser,
   createToken,
+  validatePassword,
   fetchUsers,
   fetchUserById,
+  fetchUserByLogin,
   fetchConversationsByUserId,
 };
