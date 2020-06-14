@@ -5,6 +5,7 @@ import App from './components/App';
 import { ApolloProvider } from '@apollo/react-hooks';
 import apolloClient from './apolloClient';
 import * as Sentry from '@sentry/browser';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from '@chakra-ui/core';
 import theme from './theme';
 
@@ -17,7 +18,9 @@ ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={apolloClient}>
       <ThemeProvider theme={theme}>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </ThemeProvider>
     </ApolloProvider>
   </React.StrictMode>,
