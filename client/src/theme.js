@@ -49,12 +49,12 @@ const gray = {
 const customTheme = {
   ...theme,
   colors: {
+    ...theme.colors,
     primary: turqouiseBase,
     secondary: redBase,
     turquoise,
     red,
     gray,
-    ...theme.colors,
   },
 };
 
