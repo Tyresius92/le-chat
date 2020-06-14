@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import Logger from '../logger';
-import SignOutButton from './SignOutButton';
-import { Image } from '@chakra-ui/core';
-import logoSmall from '../assets/logo_small.png';
+import { Box } from '@chakra-ui/core';
+import Header from './Header';
+
 const TEST_QUERY = gql`
   {
     users {
@@ -25,11 +25,12 @@ const App = () => {
 
   return (
     <div>
-      <Image src={logoSmall} alt="Le Chat" />
-      <p>Hello World!</p>
-      {data && <p>{JSON.stringify(data)}</p>}
-      <hr />
-      <SignOutButton />
+      <Header />
+      <Box p={4}>
+        <p>Hello World!</p>
+        {data && <p>{JSON.stringify(data)}</p>}
+        <hr />
+      </Box>
     </div>
   );
 };
