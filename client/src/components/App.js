@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import Logger from '../logger';
-import SignOutButton from './SignOutButton';
-import { Image } from '@chakra-ui/core';
-import logoSmall from '../assets/logo_small.png';
+import Header from './Header';
+import Message from './Message';
+import Chef from '../assets/swedish_chef.jpg';
+import Cat from '../assets/francois_placeholder.png';
 import { withRouter } from 'react-router';
 import { Switch, Route } from 'react-router-dom';
 
@@ -32,14 +33,23 @@ const App = () => {
 
   return (
     <div>
-      <Image src={logoSmall} alt="Le Chat" />
-      <SignOutButton />
-      <hr />
-      <br />
+      <Header />
       <Switch>
         <Route exact path="/">
           <p>Hello World!</p>
           {data && <p>{JSON.stringify(data)}</p>}
+          <Message
+            senderIcon={Chef}
+            senderName="Swedish Chef"
+            timeSent="Now"
+            messageText="BORK BORK BORK"
+          />
+          <Message
+            senderIcon={Cat}
+            senderName="François"
+            timeSent="Now"
+            messageText="miaou miaou"
+          />
         </Route>
         <Route path="/signin" component={MockSignIn} />
         <Route path="/signup" component={MockSignUp} />
