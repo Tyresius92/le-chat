@@ -1,15 +1,11 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from '../App';
 import { useQuery } from '@apollo/react-hooks';
 import Logger from '../../logger';
-import { ThemeProvider } from '@chakra-ui/core';
+import { renderThemed } from '../../testUtils/renderWrapper';
 
 jest.mock('../../logger');
 jest.mock('@apollo/react-hooks', () => ({ useQuery: jest.fn(() => ({})) }));
-
-const renderThemed = children =>
-  render(<ThemeProvider>{children}</ThemeProvider>);
 
 describe('App', () => {
   it('renders hello world', () => {
