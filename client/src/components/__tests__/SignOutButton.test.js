@@ -1,10 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { renderThemed } from '../../testUtils/renderWrapper';
 import SignOutButton from '../SignOutButton';
-import { ThemeProvider } from '@chakra-ui/core';
-
-const renderThemed = children =>
-  render(<ThemeProvider>{children}</ThemeProvider>);
 
 describe('Sign Out Button', () => {
   it('exists', () => {

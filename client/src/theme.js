@@ -54,6 +54,7 @@ const customTheme = {
     turquoise,
     red,
     gray,
+    ...theme.colors,
   },
 };
 
