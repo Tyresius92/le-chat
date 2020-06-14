@@ -16,7 +16,7 @@
     "server-start": "cd server && npm run start",
     "client-sniff": "cd client && npm run sniff",
     "server-sniff": "cd server && npm run sniff",
-    "smellsGood": "echo \"\\x1b[92mGreat success!! Your code smells goooood!\\x1b[0m\""
+    "smellsGood": "node scripts/echo \"Great success!! Your code smells goooood!\" --font-color 92"
   },
   "repository": {
     "type": "git",
