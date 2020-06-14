@@ -22,9 +22,9 @@ const Header = () => (
       </Heading>
     </Flex>
     <Flex>
-      <Text>Links</Text>
-      <Text>More Links</Text>
-      <Text>Definitely not MORE links</Text>
+      <Text m={2}>Links</Text>
+      <Text m={2}>More Links</Text>
+      <Text m={2}>Definitely not MORE links</Text>
     </Flex>
     <Box>
       <SignOutButton />
