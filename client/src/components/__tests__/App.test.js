@@ -1,26 +1,20 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from '../App';
 import { useQuery } from '@apollo/react-hooks';
 import Logger from '../../logger';
-import { ThemeProvider } from '@chakra-ui/core';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
+import { renderThemed } from '../../testUtils/renderWrapper';
 
 jest.mock('../../logger');
 jest.mock('@apollo/react-hooks', () => ({ useQuery: jest.fn(() => ({})) }));
 
-const ThemedApp = () => (
-  <ThemeProvider>
-    <App />
-  </ThemeProvider>
-);
 const renderPath = (route = '/') => {
   const history = createMemoryHistory();
   history.push(route);
-  return render(
+  return renderThemed(
     <Router history={history}>
-      <ThemedApp />
+      <App />
     </Router>
   );
 };
