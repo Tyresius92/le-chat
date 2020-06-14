@@ -13,8 +13,6 @@ Sentry.init({
     'https://6b09eade47d64550b0809731f881fb01@o404202.ingest.sentry.io/5267567',
 });
 
-console.log('asdf', theme);
-
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={apolloClient}>
