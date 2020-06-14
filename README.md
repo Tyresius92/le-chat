@@ -1,6 +1,9 @@
 # le-chat
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Le Chat is a browser-based chat application intended to provide an open source alternative for folks who want to avoid giving their data to the folks at the Big Blue F (among others).
@@ -69,7 +72,6 @@ Same command can be run from `client` and `server` directories.
 
 ## Contributors
 
-- [tyresius92](https://github.com/Tyresius92)
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -81,9 +83,8 @@ Same command can be run from `client` and `server` directories.
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-- [benjimorr](https://github.com/benjimorr)
-- [marcgaj](https://github.com/marcgaj)
 
 ## Acknowledgements
 
