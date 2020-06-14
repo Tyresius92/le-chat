@@ -5,6 +5,10 @@ import Logger from '../logger';
 import SignOutButton from './SignOutButton';
 import { Image } from '@chakra-ui/core';
 import logoSmall from '../assets/logo_small.png';
+import Message from './Message';
+import Chef from '../assets/swedish_chef.jpg';
+import Cat from '../assets/francois_placeholder.png';
+
 const TEST_QUERY = gql`
   {
     users {
@@ -30,6 +34,18 @@ const App = () => {
       {data && <p>{JSON.stringify(data)}</p>}
       <hr />
       <SignOutButton />
+      <Message
+        senderIcon={Chef}
+        senderName="Swedish Chef"
+        timeSent="Now"
+        messageText="BORK BORK BORK"
+      />
+      <Message
+        senderIcon={Cat}
+        senderName="François"
+        timeSent="Now"
+        messageText="miaou miaou"
+      />
     </div>
   );
 };
