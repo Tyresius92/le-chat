@@ -3,8 +3,13 @@ import { ApolloServer, AuthenticationError } from 'apollo-server';
 import { typeDefs, resolvers } from './schema';
 import jwt from 'jsonwebtoken';
 import services from './services';
-
 import seedDatabase from './seedDatabase';
+import * as Sentry from '@sentry/node';
+
+Sentry.init({
+  dsn:
+    'https://51d1028fd5784748b281eb58c0baae42@o404202.ingest.sentry.io/5275947',
+});
 
 const getCurrentUser = async (req, secret) => {
   const token = req.headers.authorization || '';

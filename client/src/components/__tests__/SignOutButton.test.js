@@ -1,6 +1,6 @@
 import React from 'react';
-import { renderThemed } from '../../testUtils/renderWrapper';
 import SignOutButton from '../SignOutButton';
+import { renderThemed } from '../../testUtils/renderWrapper';
 
 describe('Sign Out Button', () => {
   it('exists', () => {
