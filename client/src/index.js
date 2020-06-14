@@ -5,8 +5,8 @@ import App from './components/App';
 import { ApolloProvider } from '@apollo/react-hooks';
 import apolloClient from './apolloClient';
 import * as Sentry from '@sentry/browser';
+import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ThemeProvider } from '@chakra-ui/core';
 import theme from './theme';
 
 Sentry.init({
@@ -18,6 +18,7 @@ ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={apolloClient}>
       <ThemeProvider theme={theme}>
+        <CSSReset />
         <Router>
           <App />
         </Router>

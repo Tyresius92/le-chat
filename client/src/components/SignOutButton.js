@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@chakra-ui/core';
+import Button from './Button';
 
 const signOut = () => 'im signed out';
 
