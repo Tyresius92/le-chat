@@ -5,12 +5,15 @@ import App from './components/App';
 import { ApolloProvider } from '@apollo/react-hooks';
 import apolloClient from './apolloClient';
 import * as Sentry from '@sentry/browser';
-import { ThemeProvider, theme } from '@chakra-ui/core';
+import { ThemeProvider } from '@chakra-ui/core';
+import theme from './theme';
 
 Sentry.init({
   dsn:
     'https://6b09eade47d64550b0809731f881fb01@o404202.ingest.sentry.io/5267567',
 });
+
+console.log('asdf', theme);
 
 ReactDOM.render(
   <React.StrictMode>
