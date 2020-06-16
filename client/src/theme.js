@@ -34,6 +34,7 @@ const red = {
 
 const gray = {
   base: grayBase,
+  25: '#fff5f7',
   50: '#fbf0f2',
   100: '#dcd8d9',
   200: '#bfbfbf',
