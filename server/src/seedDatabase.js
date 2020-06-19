@@ -79,6 +79,8 @@ const seedDatabase = async () => {
       'Le Chat is teaching me so much'
     );
 
+    console.log(message1, message2, message3, message4, message5, message6);
+
     console.log('seeding database complete');
   } catch (err) {
     console.log('seeding database failed');
