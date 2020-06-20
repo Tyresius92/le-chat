@@ -16,6 +16,7 @@ export const UserType = gql`
     id: ID!
     username: String!
     email: EmailAddress!
+    conversation(conversationId: ID!): Conversation
     conversations: [Conversation!]!
   }
 `;
@@ -71,6 +72,28 @@ export const UserResolvers = {
 
   User: {
     id: user => user.id,
+    conversation: async (
+      user,
+      { conversationId },
+      { currentUser, services }
+    ) => {
+      const participants = await services.conversationService.fetchUsersByConversationId(
+        conversationId
+      );
+
+      const participantIds = participants.map(user => user.id);
+
+      if (
+        participantIds.includes(currentUser.id) &&
+        participantIds.includes(user.id)
+      ) {
+        return await services.conversationService.fetchConversationByConversationId(
+          conversationId
+        );
+      }
+
+      return null;
+    },
     conversations: (user, args, context) =>
       context.services.userService.fetchConversationsByUserId(user.id),
   },

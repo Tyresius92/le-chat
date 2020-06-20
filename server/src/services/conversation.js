@@ -46,4 +46,11 @@ const fetchUsersByConversationId = async conversationId => {
   return dbResponse.rows;
 };
 
-export default { createConversation, fetchUsersByConversationId };
+const fetchConversationByConversationId = async conversationId =>
+  await db.fetch(`SELECT * FROM conversations WHERE id = $1`, [conversationId]);
+
+export default {
+  createConversation,
+  fetchUsersByConversationId,
+  fetchConversationByConversationId,
+};

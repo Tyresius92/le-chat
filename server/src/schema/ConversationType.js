@@ -8,6 +8,7 @@ export const ConversationType = gql`
   type Conversation {
     id: ID!
     topic: String!
+    lastMessage: Message
     messages: [Message!]!
     users: [User!]!
   }
