@@ -47,7 +47,7 @@ const fetchUsersByConversationId = async conversationId => {
 };
 
 const fetchConversationByConversationId = async conversationId =>
-  await db.fetch(`SELECT * FROM conversations WHERE id = $1`, [conversationId]);
+  await db.fetch('SELECT * FROM conversations WHERE id = $1', [conversationId]);
 
 export default {
   createConversation,

@@ -75,19 +75,16 @@ export const UserResolvers = {
     conversation: async (
       user,
       { conversationId },
-      { currentUser, services }
+      { currentUser, services: { conversationService } }
     ) => {
-      const participants = await services.conversationService.fetchUsersByConversationId(
+      const users = await conversationService.fetchUsersByConversationId(
         conversationId
       );
 
-      const participantIds = participants.map(user => user.id);
+      const userIds = users.map(user => user.id);
 
-      if (
-        participantIds.includes(currentUser.id) &&
-        participantIds.includes(user.id)
-      ) {
-        return await services.conversationService.fetchConversationByConversationId(
+      if (userIds.includes(currentUser.id) && userIds.includes(user.id)) {
+        return await conversationService.fetchConversationByConversationId(
           conversationId
         );
       }

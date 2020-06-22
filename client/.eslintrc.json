@@ -60,7 +60,8 @@
       "error",
       {
         "code": 80,
-        "ignoreStrings": true
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
       }
     ],
     "max-lines": ["error", 500],
@@ -85,13 +86,5 @@
     "no-useless-rename": "error",
     "prefer-arrow-callback": "error",
     "prefer-const": "error"
-  },
-  "overrides": [
-    {
-      "files": ["./src/utils/presetBoardConstants.js"],
-      "rules": {
-        "max-len": "off"
-      }
-    }
-  ]
+  }
 }
