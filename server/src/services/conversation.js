@@ -17,8 +17,9 @@ const createConversation = async (topic, userIds) => {
 
   const newConversation = response.rows[0];
 
-  // TODO: (maybe) - This approach is not ideal,
+  // TODO (maybe): This approach is not ideal,
   // since it makes many calls to the DB instead of one
+  // see if you can figure out how to do this in a single call
   await Promise.all(
     userIds.map(userId => addUserToConversation(newConversation.id, userId))
   );
@@ -46,6 +47,9 @@ const fetchUsersByConversationId = async conversationId => {
   return dbResponse.rows;
 };
 
+const fetchConversationByConversationId = async conversationId =>
+  await db.fetch('SELECT * FROM conversations WHERE id = $1', [conversationId]);
+
 const fetchMessagesByConversationId = async conversationId =>
   await db.fetchAll('SELECT * FROM messages WHERE conversation_id = $1', [
     conversationId,
@@ -54,5 +58,6 @@ const fetchMessagesByConversationId = async conversationId =>
 export default {
   createConversation,
   fetchUsersByConversationId,
+  fetchConversationByConversationId,
   fetchMessagesByConversationId,
 };
