@@ -1,8 +1,8 @@
 PGPASSWORD=postgres psql -U chatadmin -d le_chat_db -c "
-	DROP TABLE IF EXISTS users;
-	DROP TABLE IF EXISTS conversations;
-	DROP TABLE IF EXISTS messages;
-	DROP TABLE IF EXISTS users_conversations;
+	DROP TABLE IF EXISTS users_conversations CASCADE;
+	DROP TABLE IF EXISTS users CASCADE;
+	DROP TABLE IF EXISTS conversations CASCADE;
+	DROP TABLE IF EXISTS messages CASCADE;
 
 	CREATE TABLE users (
 		id SERIAL PRIMARY KEY,

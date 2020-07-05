@@ -25,7 +25,8 @@ export const ConversationResolvers = {
 
   Conversation: {
     id: conversation => conversation.id,
-    messages: () => [],
+    messages: (conversation, args, { services: { conversationService } }) =>
+      conversationService.fetchMessagesByConversationId(conversation.id),
     users: (conversation, args, { services: { conversationService } }) =>
       conversationService.fetchUsersByConversationId(conversation.id),
   },

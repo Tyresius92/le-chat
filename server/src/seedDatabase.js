@@ -1,9 +1,10 @@
 import services from './services';
 
-const { userService, conversationService } = services;
+const { userService, conversationService, messageService } = services;
 
 const { createUser } = userService;
 const { createConversation } = conversationService;
+const { createMessage } = messageService;
 
 const seedDatabase = async () => {
   console.log('seeding database');
@@ -46,6 +47,39 @@ const seedDatabase = async () => {
     );
 
     console.log(conversation1, conversation2, conversation3, conversation4);
+
+    const message1 = await createMessage(
+      user1.id,
+      conversation1.conversation.id,
+      'hello world!'
+    );
+    const message2 = await createMessage(
+      user2.id,
+      conversation2.conversation.id,
+      'Charizard is the best'
+    );
+    const message3 = await createMessage(
+      user1.id,
+      conversation4.conversation.id,
+      'Danny Zuko is soooooo cute'
+    );
+    const message4 = await createMessage(
+      user3.id,
+      conversation1.conversation.id,
+      'goodbye world!'
+    );
+    const message5 = await createMessage(
+      user3.id,
+      conversation2.conversation.id,
+      'No, Blastoise is the best!'
+    );
+    const message6 = await createMessage(
+      user1.id,
+      conversation3.conversation.id,
+      'Le Chat is teaching me so much'
+    );
+
+    console.log(message1, message2, message3, message4, message5, message6);
 
     console.log('seeding database complete');
   } catch (err) {
