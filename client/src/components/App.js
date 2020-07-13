@@ -9,6 +9,7 @@ import Cat from '../assets/francois_placeholder.png';
 import { withRouter } from 'react-router';
 import { Switch, Route } from 'react-router-dom';
 import SignIn from './SignIn';
+import SignUp from './SignUp';
 
 const TEST_QUERY = gql`
   {
@@ -20,7 +21,6 @@ const TEST_QUERY = gql`
   }
 `;
 
-const MockSignUp = () => <p>Sign Up</p>;
 const MockHome = () => <p>Home</p>;
 const Mock404 = () => <p>404</p>;
 
@@ -53,7 +53,7 @@ const App = () => {
           />
         </Route>
         <Route path="/signin" component={SignIn} />
-        <Route path="/signup" component={MockSignUp} />
+        <Route path="/signup" component={SignUp} />
         <Route path="/home" component={MockHome} />
         <Route path="*" component={Mock404} />
       </Switch>
