@@ -19,6 +19,7 @@ const signUpMutation = gql`
 `;
 
 const boxProps = { width: '25em', m: 1 };
+
 const SignUp = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -29,12 +30,8 @@ const SignUp = () => {
 
   // TODO: This is not a great sign up validator,
   // but will get us out the door for now
-  const isFormValid = !!(
-    username &&
-    email &&
-    password.length >= 8 &&
-    password === passwordConfirm
-  );
+  const isButtonDisabled =
+    !username || !email || password.length < 8 || password !== passwordConfirm;
 
   const onButtonClick = () => {
     signUp({
@@ -101,7 +98,7 @@ const SignUp = () => {
               mr="0"
               ml="auto"
               display="block"
-              disabled={!isFormValid}
+              disabled={isButtonDisabled}
               onClick={onButtonClick}
             >
               Sign Up
