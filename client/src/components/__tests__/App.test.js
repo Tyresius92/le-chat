@@ -7,7 +7,10 @@ import { createMemoryHistory } from 'history';
 import { renderThemed } from '../../testUtils/renderWrapper';
 
 jest.mock('../../logger');
-jest.mock('@apollo/react-hooks', () => ({ useQuery: jest.fn(() => ({})) }));
+jest.mock('@apollo/react-hooks', () => ({
+  useQuery: jest.fn(() => ({})),
+  useMutation: jest.fn(() => []),
+}));
 
 const renderPath = (route = '/') => {
   const history = createMemoryHistory();
