@@ -1,8 +1,10 @@
 import { theme } from '@chakra-ui/core';
 
-const grayBase = '#404040';
-const redBase = '#902322';
 const turqouiseBase = '#45d4be';
+const grayBase = '#404040';
+const greenBase = '#4F772D';
+const purpleBase = '#8789C0';
+const redBase = '#902322';
 
 const turquoise = {
   base: turqouiseBase,
@@ -16,20 +18,6 @@ const turquoise = {
   700: '#0e695c',
   800: '#003f37',
   900: '#001812',
-};
-
-const red = {
-  base: redBase,
-  50: '#ffe8e6',
-  100: '#f4c1c0',
-  200: '#e89898',
-  300: '#dd706f',
-  400: '#d24846',
-  500: '#b92e2d',
-  600: redBase,
-  700: '#681817',
-  800: '#400d0d',
-  900: '#1c0101',
 };
 
 const gray = {
@@ -47,13 +35,58 @@ const gray = {
   900: '#150a0d',
 };
 
+const green = {
+  base: greenBase,
+  50: '#effae4',
+  100: '#d5ebc4',
+  200: '#bcdca1',
+  300: '#a2ce7d',
+  400: '#89c059',
+  500: '#70a740',
+  600: greenBase,
+  700: '#3c5d22',
+  800: '#233812',
+  900: '#071400',
+};
+
+const purple = {
+  base: purpleBase,
+  50: '#ecefff',
+  100: '#cccee9',
+  200: '#abadd4',
+  300: purpleBase,
+  400: '#696baf',
+  500: '#4f5295',
+  600: '#3d3f75',
+  700: '#2c2d55',
+  800: '#191b35',
+  900: '#080818',
+};
+
+// Use this red when doing delete account/danger things
+const red = {
+  base: redBase,
+  50: '#ffe8e6',
+  100: '#f4c1c0',
+  200: '#e89898',
+  300: '#dd706f',
+  400: '#d24846',
+  500: '#b92e2d',
+  600: redBase,
+  700: '#681817',
+  800: '#400d0d',
+  900: '#1c0101',
+};
+
 const customTheme = {
   ...theme,
   colors: {
     ...theme.colors,
     primary: turqouiseBase,
-    secondary: redBase,
+    secondary: greenBase,
     turquoise,
+    green,
+    purple,
     red,
     gray,
   },
