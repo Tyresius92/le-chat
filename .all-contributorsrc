@@ -22,6 +22,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "benjimorr",
+      "name": "Ben Morrison",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19583311?v=4",
+      "profile": "http://www.benmorrison.me",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
