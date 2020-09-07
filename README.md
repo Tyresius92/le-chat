@@ -1,7 +1,7 @@
 # le-chat
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Le Chat is a browser-based chat application intended to provide an open source alternative for folks who want to avoid giving their data to the folks at the Big Blue F (among others).
@@ -77,6 +77,7 @@ Same command can be run from `client` and `server` directories.
   <tr>
     <td align="center"><a href="https://github.com/marcgaj"><img src="https://avatars3.githubusercontent.com/u/15946968?v=4" width="100px;" alt=""/><br /><sub><b>marcgaj</b></sub></a><br /><a href="https://github.com/Tyresius92/le-chat/commits?author=marcgaj" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Tyresius92"><img src="https://avatars3.githubusercontent.com/u/28957445?v=4" width="100px;" alt=""/><br /><sub><b>Tyrel</b></sub></a><br /><a href="https://github.com/Tyresius92/le-chat/commits?author=Tyresius92" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.benmorrison.me"><img src="https://avatars1.githubusercontent.com/u/19583311?v=4" width="100px;" alt=""/><br /><sub><b>Ben Morrison</b></sub></a><br /><a href="https://github.com/Tyresius92/le-chat/commits?author=benjimorr" title="Code">💻</a></td>
   </tr>
 </table>
 
